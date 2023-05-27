@@ -1,0 +1,421 @@
+<html>
+
+<head>
+   <link rel="stylesheet" href="css/flex2html.css">
+   <script type="text/javascript" src="js/flex2html.min.js"></script>
+</head>
+
+<body>
+   <h3>Input:</h3>
+   <label for="roomNo">เลขห้องพัก: </label>
+   <input type="text" id="roomNo" />
+
+   <br>
+   <label for="building">หอพัก: </label>
+   <input type="text" id="building" />
+   <br>
+   <label for="month">เดือน: </label>
+   <input type="text" id="month" />
+   <br>
+   <label for="roomValue">ค่าเช่าห้อง: </label>
+   <input type="number" id="roomValue" />
+   <br>
+   <label for="waterValue">ค่าน้ำ: </label>
+   <input type="number" id="waterValue" />
+   <br>
+   <label for="powerValue">ค่าไฟ: </label>
+   <input type="number" id="powerValue" />
+   <br>
+   <label for="commonValue">ค่าส่วนกลาง: </label>
+   <input type="number" id="commonValue" />
+   <br>
+   <label for="otherValue">อื่นๆ: </label>
+   <input type="number" id="otherValue" />
+   <br>
+   <label for="bank">ธนาคาร: </label>
+   <input type="text" id="bank" />
+   <br>
+   <label for="bankName">ชื่อบัญชี: </label>
+   <input type="text" id="bankName" />
+   <br>
+   <label for="bankNumber">เลขบัญชี: </label>
+   <input type="text" id="bankNumber" />
+   <br>
+   <button type="button" onclick="getInputValue()">
+      Get Value From Input
+   </button>
+
+   <h3>Output:</h3>
+   <p id="output"></p>
+
+   <div class="chatbox">
+      <div id="flex1"></div>
+   </div>
+
+   <script>
+      function getInputValue() {
+         let roomNo = document.getElementById("roomNo").value;
+         let building = document.getElementById("building").value;
+         let month = document.getElementById("month").value;
+         let roomValue = parseFloat(document.getElementById("roomValue").value);
+         let waterValue = parseFloat(document.getElementById("waterValue").value);
+         let powerValue = parseFloat(document.getElementById("powerValue").value);
+         let commonValue = parseFloat(document.getElementById("commonValue").value);
+         let otherValue = parseFloat(document.getElementById("otherValue").value);
+         let bank =  document.getElementById("bank").value;
+         let bankName =  document.getElementById("bankName").value;
+         let bankNumber =  document.getElementById("bankNumber").value;
+         let detailWater = 'gge';
+         let detailPower = 'gre';
+         //let total = $sum([roomValue, waterValue, powerValue, commonValue, otherValue]);
+         let total = roomValue + waterValue + powerValue + commonValue + otherValue;
+         //flex2html("flex1", { "type": "flex", "altText": "Flex Message", "contents": { "type": "bubble", "size": "giga", "body": { "type": "box", "layout": "vertical", "contents": [{ "type": "text", "text": "ใบแจ้งค่าเช่าห้อง", "weight": "bold", "color": "#00AB00", "size": "xl", "style": "normal", "align": "center" }, { "type": "text", "text": roomNo, "weight": "bold", "size": "xl", "margin": "none", "align": "center", "color": "#0033FF" }, { "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": building, "size": "lg", "color": "#000000", "wrap": true, "align": "start", "weight": "regular" }, { "type": "text", "text": "ม.ค.65", "size": "lg", "color": "#000000", "wrap": true, "align": "end", "weight": "regular" }], "position": "relative", "margin": "xl", "spacing": "none" }, { "type": "box", "layout": "vertical", "margin": "sm", "spacing": "sm", "contents": [{ "type": "separator", "margin": "md" }, { "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": "ค่าเช่าห้อง", "size": "sm", "flex": 0, "margin": "none", "color": "#000000" }, { "type": "text", "text": roomValue, "size": "sm", "color": "#000000", "align": "end" }], "margin": "lg" }, { "type": "separator", "margin": "lg" }] }, { "type": "box", "layout": "vertical", "margin": "none", "spacing": "xs", "contents": [{ "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": "ค่าน้ำ", "size": "sm", "color": "#000000", "flex": 0, "margin": "none" }, { "type": "text", "text": waterValue, "size": "sm", "color": "#000000", "align": "end" }], "margin": "sm" }, { "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": "(3427-3422)x25", "size": "sm", "color": "#000000", "flex": 0, "margin": "none" }], "margin": "none" }, { "type": "separator", "margin": "sm" }] }, { "type": "box", "layout": "vertical", "margin": "none", "spacing": "xs", "contents": [{ "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": "ค่าไฟ", "size": "sm", "color": "#000000", "flex": 0, "margin": "none" }, { "type": "text", "text": powerValue, "size": "sm", "color": "#000000", "align": "end" }], "margin": "sm" }, { "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": "(8237-8159)x8", "size": "sm", "color": "#000000", "flex": 0, "margin": "none" }], "margin": "none" }, { "type": "separator", "margin": "sm" }] }, { "type": "box", "layout": "vertical", "margin": "none", "spacing": "sm", "contents": [{ "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": "ค่าส่วนกลาง", "size": "sm", "flex": 0, "margin": "none", "color": "#000000" }, { "type": "text", "text": commonValue, "size": "sm", "color": "#000000", "align": "end" }], "margin": "lg" }, { "type": "separator", "margin": "lg" }] }, { "type": "box", "layout": "vertical", "margin": "none", "spacing": "sm", "contents": [{ "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": "อื่นๆ(ค่าแนะนำ)", "size": "sm", "flex": 0, "margin": "none", "color": "#000000" }, { "type": "text", "text": otherValue, "size": "sm", "color": "#000000", "align": "end" }], "margin": "lg" }, { "type": "separator", "margin": "lg" }] }, { "type": "box", "layout": "vertical", "margin": "none", "spacing": "sm", "contents": [{ "type": "box", "layout": "horizontal", "contents": [{ "type": "text", "text": "รวม:", "size": "xl", "flex": 0, "margin": "none", "color": "#FF0000", "weight": "regular" }, { "type": "text", "text": total, "size": "xl", "color": "#FF0000", "align": "end", "weight": "regular" }], "margin": "lg" }, { "type": "separator", "margin": "lg" }] }, { "type": "box", "layout": "vertical", "margin": "none", "spacing": "sm", "contents": [{ "type": "box", "layout": "vertical", "contents": [{ "type": "text", "text": "โอนเข้าบัญชี:ลักษณาวดี", "size": "lg", "color": "#000000", "wrap": true, "align": "center", "weight": "bold", "margin": "none" }, { "type": "text", "text": "ไทยพาณิชย์:111111111111", "size": "lg", "color": "#000000", "wrap": true, "align": "center", "weight": "bold", "margin": "sm" }], "margin": "xl" }] }] }, "styles": { "footer": { "separator": true } } } })
+         flex2html("flex1",
+            {
+               "type": "flex",
+               "altText": "Flex Message",
+               "contents": {
+                  "type": "bubble",
+                  "size": "giga",
+                  "body": {
+                     "type": "box",
+                     "layout": "vertical",
+                     "contents": [
+                        {
+                           "type": "text",
+                           "text": "ใบแจ้งค่าเช่าห้อง",
+                           "weight": "bold",
+                           "color": "#00AB00",
+                           "size": "xl",
+                           "style": "normal",
+                           "align": "center"
+                        },
+                        {
+                           "type": "text",
+                           "text": roomNo,
+                           "weight": "bold",
+                           "size": "xl",
+                           "margin": "none",
+                           "align": "center",
+                           "color": "#0033FF"
+                        },
+                        {
+                           "type": "box",
+                           "layout": "horizontal",
+                           "contents": [
+                              {
+                                 "type": "text",
+                                 "text": building,
+                                 "size": "lg",
+                                 "color": "#000000",
+                                 "wrap": true,
+                                 "align": "start",
+                                 "weight": "regular"
+                              },
+                              {
+                                 "type": "text",
+                                 "text": month,
+                                 "size": "lg",
+                                 "color": "#000000",
+                                 "wrap": true,
+                                 "align": "end",
+                                 "weight": "regular"
+                              }
+                           ],
+                           "position": "relative",
+                           "margin": "xl",
+                           "spacing": "none"
+                        },
+                        {
+                           "type": "box",
+                           "layout": "vertical",
+                           "margin": "sm",
+                           "spacing": "sm",
+                           "contents": [
+                              {
+                                 "type": "separator",
+                                 "margin": "md"
+                              },
+                              {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": "ค่าเช่าห้อง",
+                                       "size": "sm",
+                                       "flex": 0,
+                                       "margin": "none",
+                                       "color": "#000000"
+                                    },
+                                    {
+                                       "type": "text",
+                                       "text": roomValue + ' บาท',
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "align": "end"
+                                    }
+                                 ],
+                                 "margin": "lg"
+                              },
+                              {
+                                 "type": "separator",
+                                 "margin": "lg"
+                              }
+                           ]
+                        },
+                        {
+                           "type": "box",
+                           "layout": "vertical",
+                           "margin": "none",
+                           "spacing": "xs",
+                           "contents": [
+                              {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": "ค่าน้ำ",
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "flex": 0,
+                                       "margin": "none"
+                                    },
+                                    {
+                                       "type": "text",
+                                       "text": waterValue + ' บาท',
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "align": "end"
+                                    }
+                                 ],
+                                 "margin": "sm"
+                              },
+                              {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": detailWater + ' บาท',
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "flex": 0,
+                                       "margin": "none"
+                                    }
+                                 ],
+                                 "margin": "none"
+                              },
+                              {
+                                 "type": "separator",
+                                 "margin": "sm"
+                              }
+                           ]
+                        },
+                        {
+                           "type": "box",
+                           "layout": "vertical",
+                           "margin": "none",
+                           "spacing": "xs",
+                           "contents": [
+                              {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": "ค่าไฟ",
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "flex": 0,
+                                       "margin": "none"
+                                    },
+                                    {
+                                       "type": "text",
+                                       "text": powerValue + ' บาท',
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "align": "end"
+                                    }
+                                 ],
+                                 "margin": "sm"
+                              },
+                              {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": detailPower + ' บาท',
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "flex": 0,
+                                       "margin": "none"
+                                    }
+                                 ],
+                                 "margin": "none"
+                              },
+                              {
+                                 "type": "separator",
+                                 "margin": "sm"
+                              }
+                           ]
+                        },
+                        {
+                           "type": "box",
+                           "layout": "vertical",
+                           "margin": "none",
+                           "spacing": "sm",
+                           "contents": [
+                              {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": "ค่าส่วนกลาง",
+                                       "size": "sm",
+                                       "flex": 0,
+                                       "margin": "none",
+                                       "color": "#000000"
+                                    },
+                                    {
+                                       "type": "text",
+                                       "text": commonValue + ' บาท',
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "align": "end"
+                                    }
+                                 ],
+                                 "margin": "lg"
+                              },
+                              {
+                                 "type": "separator",
+                                 "margin": "lg"
+                              }
+                           ]
+                        },
+                        {
+                           "type": "box",
+                           "layout": "vertical",
+                           "margin": "none",
+                           "spacing": "sm",
+                           "contents": [
+                              {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": "อื่นๆ(ค่าแนะนำ)",
+                                       "size": "sm",
+                                       "flex": 0,
+                                       "margin": "none",
+                                       "color": "#000000"
+                                    },
+                                    {
+                                       "type": "text",
+                                       "text": otherValue + ' บาท',
+                                       "size": "sm",
+                                       "color": "#000000",
+                                       "align": "end"
+                                    }
+                                 ],
+                                 "margin": "lg"
+                              },
+                              {
+                                 "type": "separator",
+                                 "margin": "lg"
+                              }
+                           ]
+                        },
+                        {
+                           "type": "box",
+                           "layout": "vertical",
+                           "margin": "none",
+                           "spacing": "sm",
+                           "contents": [
+                              {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": "รวม:",
+                                       "size": "xl",
+                                       "flex": 0,
+                                       "margin": "none",
+                                       "color": "#FF0000",
+                                       "weight": "regular"
+                                    },
+                                    {
+                                       "type": "text",
+                                       "text": total + ' บาท',
+                                       "size": "xl",
+                                       "color": "#FF0000",
+                                       "align": "end",
+                                       "weight": "regular"
+                                    }
+                                 ],
+                                 "margin": "lg"
+                              },
+                              {
+                                 "type": "separator",
+                                 "margin": "lg"
+                              }
+                           ]
+                        },
+                        {
+                           "type": "box",
+                           "layout": "vertical",
+                           "margin": "none",
+                           "spacing": "sm",
+                           "contents": [
+                              {
+                                 "type": "box",
+                                 "layout": "vertical",
+                                 "contents": [
+                                    {
+                                       "type": "text",
+                                       "text": "โอนเข้าบัญชี : " + bankName,
+                                       "size": "lg",
+                                       "color": "#000000",
+                                       "wrap": true,
+                                       "align": "center",
+                                       "weight": "bold",
+                                       "margin": "none"
+                                    },
+                                    {
+                                       "type": "text",
+                                       "text": bank + " : " + bankNumber,
+                                       "size": "lg",
+                                       "color": "#000000",
+                                       "wrap": true,
+                                       "align": "center",
+                                       "weight": "bold",
+                                       "margin": "sm"
+                                    }
+                                 ],
+                                 "margin": "xl"
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  "styles": {
+                     "footer": {
+                        "separator": true
+                     }
+                  }
+               }
+            })
+      }
+   </script>
+
+
+
+
+</body>
+
+</html>
