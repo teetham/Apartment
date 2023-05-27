@@ -32,28 +32,27 @@
    <label for="roomValue">ค่าเช่าห้อง: </label>
    <input type="number" id="roomValue" />
    <br>
+   <label for="waterBefore">อ่านน้ำแรก: </label>
+   <input type="number" id="waterBefore" />
+   <br>
+   <label for="waterAfter">อ่านน้ำหลัง: </label>
+   <input type="number" id="waterAfter" />
+   <br>
    <label for="waterValue">ค่าน้ำ: </label>
    <input type="number" id="waterValue" />
    <br>
-   <label for="powerValue">ค่าไฟ: </label>
-   <input type="number" id="powerValue" />
+   <label for="powerBefore">อ่านไฟแรก: </label>
+   <input type="number" id="powerBefore" />
+   <br>
+   <label for="powerAfter">อ่านไฟหลัง: </label>
+   <input type="number" id="powerAfter" />
    <br>
    <label for="commonValue">ค่าส่วนกลาง: </label>
    <input type="number" id="commonValue" />
    <br>
    <label for="otherValue">อื่นๆ: </label>
    <input type="number" id="otherValue" />
-   <!-- 
-   <br>
-   <label for="bank">ธนาคาร: </label>
-   <input type="text" id="bank" />
-   <br>
-   <label for="bankName">ชื่อบัญชี: </label>
-   <input type="text" id="bankName" />
-   <br>
-   <label for="bankNumber">เลขบัญชี: </label>
-   <input type="text" id="bankNumber"/>
-   -->
+
    <br><br>
    <button type="button" onclick="getInputValue()">
       Get Value From Input
@@ -73,15 +72,22 @@
          let month = document.getElementById("month").value;
          let roomValue = parseFloat(document.getElementById("roomValue").value);
          let waterValue = parseFloat(document.getElementById("waterValue").value);
-         let powerValue = parseFloat(document.getElementById("powerValue").value);
+         let waterBefore = parseFloat(document.getElementById("waterBefore").value);
+         let waterAfter = parseFloat(document.getElementById("waterAfter").value);
+         let powerBefore = parseFloat(document.getElementById("powerBefore").value);
+         let powerAfter = parseFloat(document.getElementById("powerAfter").value);
          let commonValue = parseFloat(document.getElementById("commonValue").value);
          let otherValue = parseFloat(document.getElementById("otherValue").value);
+
          let bank = "--";
          let bankName = "--";
          let bankNumber = "--";
-
-         let detailWater = '';
-         let detailPower = '';
+         let detailWater = '-';
+         if(((waterAfter-waterBefore)*20) >= waterValue)
+         {
+            detailWater = '(' + waterAfter + ' - ' + waterBefore + ')' + ' x 20';
+         }
+         let detailPower = '(' + powerAfter + ' - ' + powerBefore + ')' + ' x 8';
 
          if (building == "ทวีชัย1") 
          {
@@ -106,7 +112,7 @@
             bankName = "ลักษณาวดี";
             bankNumber = "018-260630-8";
          }
-
+         let powerValue = (powerAfter - powerBefore)*8;
          let total = roomValue + waterValue + powerValue + commonValue + otherValue;
          flex2html("flex1",
             {
